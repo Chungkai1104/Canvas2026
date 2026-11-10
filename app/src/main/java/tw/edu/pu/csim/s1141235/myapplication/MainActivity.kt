@@ -67,9 +67,16 @@ fun CanvasScreen(modifier: Modifier = Modifier) {
 
     LaunchedEffect(gameOver) {
         while (!gameOver) {
-            delay(100L)
-            minionsX += 5
-            minionsY += 10
+            delay(1L)
+            minionsX += 1
+            minionsY += 1
+
+            if (CanvansWidth > 0f && CanvanHeight > 0f) {
+                if (minionsX > CanvansWidth || minionsY > CanvanHeight) {
+                    minionsX = 0f
+                    minionsY = 0f
+                }
+            }
         }
     }
 
